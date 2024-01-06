@@ -1,0 +1,18 @@
+/*
+ * main.c
+ *
+ *  Created on: Jan 5, 2024
+ *      Author: adria
+ */
+
+#include <stdio.h>
+
+int main(void)
+{
+
+	printf("Hello World");
+
+
+
+	return 0;
+}
