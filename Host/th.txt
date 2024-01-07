@@ -1,0 +1,13 @@
+
+Bare Metal:
+
+Is low level type programming that is hard-coded to a system at
+the hardware level.
+
+We jump past OS and DRIVERS and go to the direct hardware.
+
+Sometimes we have the libraries like Arduino to facilitate programming.
+
+In this case we want to just use the most basic level, in this case in C language.
+
+4300510011000059334D524E
