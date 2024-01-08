@@ -1,5 +1,5 @@
 /*
- * 07PointersExercice6.c
+ * 09PointersExercice8.c
  *
  *  Created on: Jan 5, 2024  *
  *      Author: adria        *

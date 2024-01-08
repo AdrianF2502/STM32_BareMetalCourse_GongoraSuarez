@@ -11,3 +11,12 @@ Sometimes we have the libraries like Arduino to facilitate programming.
 In this case we want to just use the most basic level, in this case in C language.
 
 4300510011000059334D524E
+
+---------------------------------------------------------
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+---------------------------------------------------------
+
+1.- Getting in the string by the user
+2.- analying the input by lenght
+3.- By lenght getting the permurtations possible
+4.- Printing all of the posible permutations possible.

@@ -30,3 +30,4 @@ int main(void)
 
 	for(;;);
 }
+0x4001 1000

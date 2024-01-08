@@ -5,6 +5,7 @@
  *      Author: adria        *
 */ 
  //Write a program in C to print all permutations of a given string using pointers
+ // IN PROGRESS
 
  #include <stdio.h>
 
@@ -28,12 +29,18 @@ int main(void)
     
     for (size_t i = 0; i < numArray; i++)
     {
+        /* code */
+    }
+    
+
+    for (size_t i = 0; i < numArray; i++)
+    {
         printf("variable num - %d | value - %d\n", i, *(varArray + i));
     }
 
     getchar();
     getchar();
-    
+
     return 0;
  }
 

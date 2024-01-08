@@ -1,42 +1,94 @@
-16:52:47 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+21:14:21 **** Incremental Build of configuration Debug for project 002Blinker2 ****
 make -j16 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "001HelloWorld.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\001HelloWorld\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="001HelloWorld.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 001HelloWorld.elf
+arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker2.elf
  
-arm-none-eabi-size   001HelloWorld.elf 
-arm-none-eabi-objdump -h -S  001HelloWorld.elf  > "001HelloWorld.list"
+arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
+arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
    text	   data	    bss	    dec	    hex	filename
-   3240	    100	   1900	   5240	   1478	001HelloWorld.elf
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
 Finished building: default.size.stdout
  
-Finished building: 001HelloWorld.list
+Finished building: 002Blinker2.bin
  
-20:16:13 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+Finished building: 002Blinker2.list
+ 
+Finished building: 002Blinker2.hex
+ 
+21:15:08 **** Incremental Build of configuration Debug for project 002Blinker2 ****
 make -j16 all 
-arm-none-eabi-size   001HelloWorld.elf 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker2.elf
+ 
+arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
+arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
    text	   data	    bss	    dec	    hex	filename
-   3240	    100	   1900	   5240	   1478	001HelloWorld.elf
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
 Finished building: default.size.stdout
  
-20:17:41 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+Finished building: 002Blinker2.bin
+ 
+Finished building: 002Blinker2.list
+ 
+Finished building: 002Blinker2.hex
+ 
+21:16:08 **** Incremental Build of configuration Debug for project 002Blinker2 ****
 make -j16 all 
-arm-none-eabi-size   001HelloWorld.elf 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker2.elf
+ 
+arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
    text	   data	    bss	    dec	    hex	filename
-   3240	    100	   1900	   5240	   1478	001HelloWorld.elf
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
+arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
 Finished building: default.size.stdout
  
-20:18:05 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+Finished building: 002Blinker2.bin
+ 
+Finished building: 002Blinker2.list
+ 
+Finished building: 002Blinker2.hex
+ 
+21:17:26 **** Incremental Build of configuration Debug for project 002Blinker2 ****
 make -j16 all 
-arm-none-eabi-size   001HelloWorld.elf 
+arm-none-eabi-size   002Blinker2.elf 
    text	   data	    bss	    dec	    hex	filename
-   3240	    100	   1900	   5240	   1478	001HelloWorld.elf
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
 Finished building: default.size.stdout
  
-20:18:31 **** Incremental Build of configuration Debug for project 001HelloWorld ****
+21:18:40 **** Incremental Build of configuration Debug for project 002Blinker2 ****
 make -j16 all 
-arm-none-eabi-size   001HelloWorld.elf 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker2.elf
+ 
+arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
    text	   data	    bss	    dec	    hex	filename
-   3240	    100	   1900	   5240	   1478	001HelloWorld.elf
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
+arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
+Finished building: default.size.stdout
+ 
+Finished building: 002Blinker2.bin
+ 
+Finished building: 002Blinker2.list
+ 
+Finished building: 002Blinker2.hex
+ 
+21:19:32 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+make -j16 all 
+arm-none-eabi-size   002Blinker2.elf 
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	002Blinker2.elf
 Finished building: default.size.stdout
  
