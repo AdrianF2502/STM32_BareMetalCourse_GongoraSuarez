@@ -1,0 +1,27 @@
+Primero indentificamos el puerto RCC y su direccion base.
+
+0x4002 1000
+
+luego le sumamos el offset 0x0C que dispone para el RCC_APB2RSTR.
+
+0x4002 100C.
+
+Buscamos el puerto con offset 0x00 o GPIO_MODDER o GPIO_CRL en mi caso.
+
+Ahora pongo la direccion del puerto y le sumo el offset del registro GPIOx_ODR para configurarlo como output. 
+
+0x4001 1000 + 0x0C = 0x4001 100C
+
+Ahora con los registros correctos podemos configurar los bits de estos registros para differentes modos, pines.
+
+con el pointer del RCC para el AHB1ENR we configure for the GPIOC
+
+Para hacer las configuraciones usamos |= para introducir o settear un bit o varios bit. (practicamente lo remplazas si usas el bit lenght).
+O usar &=~ para limpiar o "clear" a bit de la misma manera. Esto ocurre por el uso de Bitwise operators, en el cual al usar OR | este por su naturaleza convierte cualquier bit 0 si de compara o usa con un 1 y solo con un 1. De la misma manera el AND negado &=~ limpia o convierte cualquier valor 1 si este se compara con otro valor 1, resultando en una limpieza del pin al cual quieras usar. 
+
+Hacemos este proceso para los 3 registros, en el primero como dijimos el RCC.
+
+Para el segundo limpiamos los registros (solo un output) para luego settear solo un PIN (bit) como output.
+
+Para este punto solo nos faltaria activar un Alto en  el registro que corresponde ala Salida del puerto C,
+entonces setteamos el puerto con el bit que corresponde al PIN.
