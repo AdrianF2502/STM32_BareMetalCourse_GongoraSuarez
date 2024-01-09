@@ -1,94 +1,106 @@
-21:14:21 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:22:42 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 002Blinker2.elf
- 
-arm-none-eabi-size   002Blinker2.elf 
-arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
-arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
+arm-none-eabi-size   002Blinker.elf 
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
-arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
  
-Finished building: 002Blinker2.bin
- 
-Finished building: 002Blinker2.list
- 
-Finished building: 002Blinker2.hex
- 
-21:15:08 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:24:27 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 002Blinker2.elf
- 
-arm-none-eabi-size   002Blinker2.elf 
-arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
-arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
+arm-none-eabi-size   002Blinker.elf 
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
-arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
  
-Finished building: 002Blinker2.bin
- 
-Finished building: 002Blinker2.list
- 
-Finished building: 002Blinker2.hex
- 
-21:16:08 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:29:11 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 002Blinker2.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
  
-arm-none-eabi-size   002Blinker2.elf 
-arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
+arm-none-eabi-size   002Blinker.elf 
+arm-none-eabi-objdump -h -S  002Blinker.elf  > "002Blinker.list"
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
-arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
-arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
  
-Finished building: 002Blinker2.bin
+Finished building: 002Blinker.list
  
-Finished building: 002Blinker2.list
- 
-Finished building: 002Blinker2.hex
- 
-21:17:26 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:33:07 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-size   002Blinker.elf 
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
  
-21:18:40 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:35:11 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C8Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "002Blinker2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\adria\STM Course\Target\002Blinker2\STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 002Blinker2.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
  
-arm-none-eabi-size   002Blinker2.elf 
-arm-none-eabi-objdump -h -S  002Blinker2.elf  > "002Blinker2.list"
+arm-none-eabi-size   002Blinker.elf 
+arm-none-eabi-objdump -h -S  002Blinker.elf  > "002Blinker.list"
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
-arm-none-eabi-objcopy  -O ihex  002Blinker2.elf  "002Blinker2.hex"
-arm-none-eabi-objcopy  -O binary  002Blinker2.elf  "002Blinker2.bin"
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
  
-Finished building: 002Blinker2.bin
+Finished building: 002Blinker.list
  
-Finished building: 002Blinker2.list
- 
-Finished building: 002Blinker2.hex
- 
-21:19:32 **** Incremental Build of configuration Debug for project 002Blinker2 ****
+22:45:28 **** Incremental Build of configuration Debug for project 002Blinker ****
 make -j16 all 
-arm-none-eabi-size   002Blinker2.elf 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
+ 
+arm-none-eabi-size   002Blinker.elf 
+arm-none-eabi-objdump -h -S  002Blinker.elf  > "002Blinker.list"
    text	   data	    bss	    dec	    hex	filename
-    700	      8	   1568	   2276	    8e4	002Blinker2.elf
+    840	      8	   1568	   2416	    970	002Blinker.elf
 Finished building: default.size.stdout
+ 
+Finished building: 002Blinker.list
+ 
+22:48:47 **** Incremental Build of configuration Debug for project 002Blinker ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
+ 
+arm-none-eabi-size   002Blinker.elf 
+arm-none-eabi-objdump -h -S  002Blinker.elf  > "002Blinker.list"
+   text	   data	    bss	    dec	    hex	filename
+    840	      8	   1568	   2416	    970	002Blinker.elf
+Finished building: default.size.stdout
+ 
+Finished building: 002Blinker.list
+ 
+22:50:49 **** Incremental Build of configuration Debug for project 002Blinker ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
+ 
+arm-none-eabi-size   002Blinker.elf 
+arm-none-eabi-objdump -h -S  002Blinker.elf  > "002Blinker.list"
+   text	   data	    bss	    dec	    hex	filename
+    840	      8	   1568	   2416	    970	002Blinker.elf
+Finished building: default.size.stdout
+ 
+Finished building: 002Blinker.list
  
