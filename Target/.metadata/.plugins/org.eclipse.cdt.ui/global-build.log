@@ -104,3 +104,23 @@ Finished building: default.size.stdout
  
 Finished building: 002Blinker.list
  
+09:24:04 **** Build of configuration Debug for project 002Blinker ****
+make -j12 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446zetx.d" -MT"Startup/startup_stm32f446zetx.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446zetx.o" "../Startup/startup_stm32f446zetx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+      |    ^~~~~~~
+arm-none-eabi-gcc -o "002Blinker.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Repos\STM32_BareMetalCourse_GongoraSuarez\Target\002Blinker\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="002Blinker.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 002Blinker.elf
+ 
+arm-none-eabi-size  002Blinker.elf 
+arm-none-eabi-objdump -h -S 002Blinker.elf  > "002Blinker.list"
+   text	   data	    bss	    dec	    hex	filename
+    840	      8	   1568	   2416	    970	002Blinker.elf
+Finished building: default.size.stdout
+ 
+Finished building: 002Blinker.list
+ 
