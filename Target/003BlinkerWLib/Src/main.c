@@ -29,15 +29,17 @@ int main(void)
 	GPIOx_MODDER_t    volatile *const pPortBModderReg = (GPIOx_MODDER_t*)    GPIOB_MODDER_REG;
 	GPIOX_ORD_t       volatile *const pPortBOutReg    = (GPIOX_ORD_t*)       GPIOB_ORD_REG;
 
+	// 1.- ENABLE THE RCC
 	pClkCtrlReg -> GPIOB_EN = ENABLE;
 
-
-
+	// 2.- SET UP THE PIN PB0 AS OUTPUT
+	pPortBModderReg -> pin_0 = OUTPUT;
 
     /* Loop forever */
 	for(;;)
 	{
-
+		// 3.- ENABLE THE PIB B0 AND SET IT TO HIGH.
+		pPortBOutReg -> pin_0 = HIGH;
 
 
 	}

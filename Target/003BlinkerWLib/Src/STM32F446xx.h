@@ -26,7 +26,7 @@
 
 		/*		   GPIOX MODES VALUES	   */
 #define INPUT 					0x00UL
-#define OUPUT 					0x01UL
+#define OUTPUT 					0x01UL
 #define ALTERNATE_FUNC  		0x02UL
 #define ANALOG 					0x03UL
 		/*		   GPIOX OUTPUT VALUES	   */
