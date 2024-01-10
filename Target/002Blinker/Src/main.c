@@ -31,7 +31,7 @@ int main(void)
 	uint32_t * pPortDModeReg = (uint32_t*)0x40020400; // Enable the port Register - high register because PIN13
 	uint32_t * pPortDOutReg = (uint32_t*)0x40020414; // Register for the OUTPUT Pins
 
-	/*
+	/*A
 	 * NOTE: the declaration and initilization of the pointers above, is as follows:
 	 * The unit32_t * ptr is the declaration
 	 * The initilization ocurrs with (unit32_t*)x which typecasts that tells the compiler to treat the x as a 32 bit integer pointer,

@@ -9494,3 +9494,24 @@ java.net.UnknownHostException: download.eclipse.org
 	at org.eclipse.ecf.provider.filetransfer.httpclient5.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:251)
 	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:71)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:37:26.897
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 53 headers) in 1.53 sec: 1,950 declarations; 2,832 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:38:41.762
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 53 headers) in 0.522 sec: 1,950 declarations; 2,832 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:39:46.488
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 53 headers) in 0.457 sec: 1,950 declarations; 2,832 references; 3 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:40:12.598
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 53 headers) in 0.396 sec: 1,950 declarations; 2,832 references; 3 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:43:37.739
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 61 headers) in 1.26 sec: 3,226 declarations; 5,248 references; 3 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.024%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:44:36.807
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 61 headers) in 0.832 sec: 3,226 declarations; 5,248 references; 3 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.024%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-09 16:45:31.013
+!MESSAGE Indexed '003BlinkerWLib' (3 sources, 61 headers) in 0.842 sec: 3,226 declarations; 5,248 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.024%)
