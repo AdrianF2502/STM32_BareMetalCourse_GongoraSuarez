@@ -17,7 +17,7 @@
  */
 
 #include <stdint.h>
-#include "stm32f407xx.h"
+#include "STM32F446xx.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -25,6 +25,21 @@
 
 int main(void)
 {
+	RCC_REG_AHB1ENR_t volatile *const pClkCtrlReg     = (RCC_REG_AHB1ENR_t*) RCC_AHB1ENR_REG;
+	GPIOx_MODDER_t    volatile *const pPortBModderReg = (GPIOx_MODDER_t*)    GPIOB_MODDER_REG;
+	GPIOX_ORD_t       volatile *const pPortBOutReg    = (GPIOX_ORD_t*)       GPIOB_ORD_REG;
+
+	pClkCtrlReg -> GPIOB_EN = ENABLE;
+
+
+
+
     /* Loop forever */
-	for(;;);
+	for(;;)
+	{
+
+
+
+	}
+	return 0;
 }
