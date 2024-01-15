@@ -167,8 +167,14 @@ typedef struct CAN_typedef
 
 } HCAN;
 
+/*
+ * 	FUNCTION DECLARATION
+ *
+ * */
 
-
+void CAN_init(HCAN *hcan);
+void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *pTxMailbox);
+void CAN_START(void);
 
 
 #endif /* CAN_H_ */

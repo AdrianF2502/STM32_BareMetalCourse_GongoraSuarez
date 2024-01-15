@@ -20,7 +20,10 @@
 		/*		   RCC REGISTER			   */
 #define RCC_BASE_REG 			0x40023800UL								// BASE REGISTER
 #define RCC_AHB1ENR_OFFSET  	0x30UL										//
-#define RCC_AHB1ENR_REG 		(RCC_BASE_REG + RCC_AHB1ENR_OFFSET)			//
+#define RCC_AHB1ENR_REG 		(RCC_BASE_REG + RCC_AHB1ENR_OFFSET)			//{
+#define RCC_APB1ENR_OFFSET  	0x20UL										//
+#define RCC_APB1ENR_REG 		(RCC_BASE_REG + RCC_APB1ENR_OFFSET)			//{
+
 
 		/*		   bxCAN REGISTERS			   */
 #define CAN1_BASE_REG			0x40006400UL
@@ -192,6 +195,31 @@
 #define GPIOD_ORD_REG 			(GPIOD_BASE_REG + GPIOX_ORD_OFFSET)	//
 #define GPIOB_ORD_REG 			(GPIOB_BASE_REG + GPIOX_ORD_OFFSET)		    //
 
+		/*  	GPIOX OUPUT TYPE REGISTER	   */
+#define GPIOX_OTYPER_OFFSET 		0x04UL
+#define GPIOD_OTYPER_REG 			(GPIOD_BASE_REG + GPIOX_OTYPER_OFFSET)	//
+#define GPIOB_OTYPER_REG 			(GPIOB_BASE_REG + GPIOX_OTYPER_OFFSET)		    //
+
+		/*  	GPIOX OUTPUT SPEED REGISTER	   */
+#define GPIOX_OSPEED_OFFSET 		0x08UL
+#define GPIOD_OSPEED_REG 			(GPIOD_BASE_REG + GPIOX_OSPEED_OFFSET)	//
+#define GPIOB_OSPEED_REG 			(GPIOB_BASE_REG + GPIOX_OSPEED_OFFSET)		    //
+
+		/*  	GPIOX OUTPUT PULL UP/DOWN REGISTER	   */
+#define GPIOX_PUPDR_OFFSET	 		0x0CUL
+#define GPIOD_PUPDR_REG 			(GPIOD_BASE_REG + GPIOX_PUPDR_OFFSET)	//
+#define GPIOB_PUPDR_REG 			(GPIOB_BASE_REG + GPIOX_PUPDR_OFFSET)		    //
+
+		/*  	GPIOX ALTERNATE FUNCT HIGH REGISTER	   */
+#define GPIOX_AFRL_OFFSET 		0x20UL
+#define GPIOD_AFRL_REG 			(GPIOD_BASE_REG + GPIOX_AFRL_OFFSET)	//
+#define GPIOB_AFRL_REG 			(GPIOB_BASE_REG + GPIOX_AFRL_OFFSET)		    //
+
+		/*  	GPIOX ALTERNATE FUNCT LOW REGISTER	   */
+#define GPIOX_AFRH_OFFSET 		0x24UL
+#define GPIOD_AFRH_REG 			(GPIOD_BASE_REG + GPIOX_AFRH_OFFSET)	//
+#define GPIOB_AFRH_REG 			(GPIOB_BASE_REG + GPIOX_AFRH_OFFSET)		    //
+
 		/*		   GPIOX MODES VALUES	   */
 #define GPIO_INPUT 					0x00UL
 #define GPIO_OUTPUT 				0x01UL
@@ -201,10 +229,42 @@
 #define GPIO_HIGH 					0x01UL
 #define GPIO_LOW  					0x00UL
 		/*		  FUNCTION SET VALUES	   */
-#define SET_BIT					0x01UL
-#define CLEAR_BIT 				0x00UL
-#define ENABLE				0x01UL
-#define DISABLE				0x00UL
+#define SET_BIT						0x01UL
+#define CLEAR_BIT 					0x00UL
+#define ENABLE						0x01UL
+#define DISABLE						0x00UL
+		/*		  OUTPUT TYPE VALUES	   */
+#define GPIO_PUSH_PULL				0x01UL
+#define GPIO_OPEN_DRAIN 			0x00UL
+		/*		  OUTPUT SPEED VALUES	   */
+#define GPIO_LOW_SPEED				0x00UL
+#define GPIO_MEDIUM_SPEED 			0x01UL
+#define GPIO_FAST_SPEED				0x02UL
+#define GPIO_HIGH_SPEED				0x03UL
+		/*		  OUTPUT PULL-DOWN VALUES	   */
+#define GPIO_NO_PULL_DOWN			0x00UL
+#define GPIO_PULL_UP 				0x01UL
+#define GPIO_PULL_DOWN				0x02UL
+#define GPIO_RESERVED				0x03UL
+		/*		  OUTPUT ALTERNATE FUNCT VALUES	   */
+#define GPIO_AF0					0x00UL
+#define GPIO_AF1					0x01UL
+#define GPIO_AF2					0x02UL
+#define GPIO_AF3					0x03UL
+#define GPIO_AF4					0x04UL
+#define GPIO_AF5					0x05UL
+#define GPIO_AF6					0x06UL
+#define GPIO_AF7					0x07UL
+#define GPIO_AF8					0x08UL
+#define GPIO_AF9					0x09UL
+#define GPIO_AF10					0x0AUL
+#define GPIO_AF11					0x0BUL
+#define GPIO_AF12					0x0CUL
+#define GPIO_AF13					0x0DUL
+#define GPIO_AF14					0x0EUL
+#define GPIO_AF15					0x0FUL
+
+
 
 /*
  * ----------------------------------------------------
@@ -239,6 +299,31 @@ typedef struct
 	_RE uint32_t  			           :1;
 
 } RCC_REG_AHB1ENR_t;
+
+typedef struct
+	{
+	_IO uint32_t  TIM2RST		       :1;
+	_IO uint32_t  TIM3RST		       :1;
+	_IO uint32_t  TIM4RST		       :1;
+	_IO uint32_t  TIM5RST		       :1;
+	_IO uint32_t  TIM6RST		       :1;
+	_IO uint32_t  TIM7RST		       :1;
+	_IO uint32_t  TIM12RST		       :1;
+	_IO uint32_t  TIM13RST		       :1;
+	_IO uint32_t  TIM14RST		       :1;
+	_IO uint32_t  WWDGRST		       :1;
+	_IO uint32_t  SPI2RST		       :1;
+	_IO uint32_t  SPI3RST		       :1;
+	_IO uint32_t  SPDIFRXRST		   :1;
+	_IO uint32_t  USART2RST		 	   :1;
+	_IO uint32_t  USART3RST		 	   :1;
+	_IO uint32_t  USART4RST		 	   :1;
+	_IO uint32_t  USART5RST		 	   :1;
+	_IO uint32_t  USART5RST		 	   :1;
+	_IO uint32_t  USART5RST		 	   :1;
+
+
+} RCC_REG_APB1ENR_t;
 
 /*
  * ----------------------------------------------------
@@ -293,6 +378,99 @@ typedef struct						/* PIN OUTPUT*/
 
 
 } GPIOX_ORD_t;
+
+typedef struct						/* TYPE OF OUTPUT*/
+{
+	_IO uint32_t  pin_0                  :1;
+	_IO uint32_t  pin_1                  :1;
+	_IO uint32_t  pin_2                  :1;
+	_IO uint32_t  pin_3                  :1;
+	_IO uint32_t  pin_4                  :1;
+	_IO uint32_t  pin_5                  :1;
+	_IO uint32_t  pin_6                  :1;
+	_IO uint32_t  pin_7                  :1;
+	_IO uint32_t  pin_8                  :1;
+	_IO uint32_t  pin_9                  :1;
+	_IO uint32_t  pin_10                 :1;
+	_IO uint32_t  pin_11                 :1;
+	_IO uint32_t  pin_12                 :1;
+	_IO uint32_t  pin_13                 :1;
+	_IO uint32_t  pin_14                 :1;
+	_IO uint32_t  pin_15                 :1;
+	_RE uint32_t  			 			 :16;
+
+
+} GPIOx_OTYPER_t;
+
+typedef struct						/* Output SPEED */
+{
+	_IO uint32_t pin_0                  :2;
+	_IO uint32_t pin_1                  :2;
+	_IO uint32_t pin_2                  :2;
+	_IO uint32_t pin_3                  :2;
+	_IO uint32_t pin_4                  :2;
+	_IO uint32_t pin_5                  :2;
+	_IO uint32_t pin_6                  :2;
+	_IO uint32_t pin_7                  :2;
+	_IO uint32_t pin_8                  :2;
+	_IO uint32_t pin_9                  :2;
+	_IO uint32_t pin_10                 :2;
+	_IO uint32_t pin_11                 :2;
+	_IO uint32_t pin_12                 :2;
+	_IO uint32_t pin_13                 :2;
+	_IO uint32_t pin_14                 :2;
+	_IO uint32_t pin_15                 :2;
+
+} GPIOx_OSPEED_t;
+
+typedef struct						/* PULL-UP / PULL DOWN */
+{
+	_IO uint32_t pin_0                  :2;
+	_IO uint32_t pin_1                  :2;
+	_IO uint32_t pin_2                  :2;
+	_IO uint32_t pin_3                  :2;
+	_IO uint32_t pin_4                  :2;
+	_IO uint32_t pin_5                  :2;
+	_IO uint32_t pin_6                  :2;
+	_IO uint32_t pin_7                  :2;
+	_IO uint32_t pin_8                  :2;
+	_IO uint32_t pin_9                  :2;
+	_IO uint32_t pin_10                 :2;
+	_IO uint32_t pin_11                 :2;
+	_IO uint32_t pin_12                 :2;
+	_IO uint32_t pin_13                 :2;
+	_IO uint32_t pin_14                 :2;
+	_IO uint32_t pin_15                 :2;
+
+} GPIOx_PUPDR_t;
+
+typedef struct						/* ALTERNATE FUNCTION HIGH REGISTER */
+{
+	_IO uint32_t pin_8                  :4;
+	_IO uint32_t pin_9                  :4;
+	_IO uint32_t pin_10                 :4;
+	_IO uint32_t pin_11                 :4;
+	_IO uint32_t pin_12                 :4;
+	_IO uint32_t pin_13                 :4;
+	_IO uint32_t pin_14                 :4;
+	_IO uint32_t pin_15                 :4;
+
+} GPIOx_AFRH_t;
+
+typedef struct						/* ALTERNATE FUNCTION LOW REGISTER */
+{
+	_IO uint32_t pin_0                  :4;
+	_IO uint32_t pin_1                  :4;
+	_IO uint32_t pin_2                  :4;
+	_IO uint32_t pin_3                  :4;
+	_IO uint32_t pin_4                  :4;
+	_IO uint32_t pin_5                  :4;
+	_IO uint32_t pin_6                  :4;
+	_IO uint32_t pin_7                  :4;
+
+
+} GPIOx_AFRL_t;
+
 
 /*
  * ----------------------------------------------------

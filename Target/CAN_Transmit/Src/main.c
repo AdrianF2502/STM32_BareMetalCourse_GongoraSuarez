@@ -18,15 +18,34 @@
 
 #include <stdint.h>
 #include "can.h"
+#include "stm32f446xx.h" // GPIOs
+#include "Include/stm32f446xx.h" // CMSIS
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+#define pRCCAHB1Reg  ((RCC_REG_AHB1ENR_t volatile *const)RCC_AHB1ENR_REG)
+#define pGPIODModReg ((GPIOx_MODDER_t volatile *const)GPIOD_MODDER_REG)
+//#define pGPIODODRReg ((GPIOX_ORD_t volatile *const)GPIOD_ORD_REG)
+#define pGPIODTYPER ((GPIOx_OTYPER_t volatile *const)GPIOD_OTYPER_REG)
+#define pOSPEEDR ((GPIOx_OSPEED_t volatile *const)GPIOD_OSPEED_REG)
+#define pPUPDR ((GPIOx_PUPDR_t volatile *const)GPIOD_PUPDR_REG)
+#define pAFRH ((GPIOx_AFRH_t volatile *const)GPIOD_AFRH_REG)
+#define pAFRL ((GPIOx_AFRL_t volatile *const)GPIOD_AFRL_REG)
+
+
+HCAN hcan1;
+
 int main(void)
 {
     /* Loop forever */
 
+	//ENABLE THE RCC
+	pRCCAHB1Reg->GPIOD_EN = ENABLE;
+
+	Funct_CAN_init();
+	CAN_GPIO_Init();
 
 	for(;;);
 
@@ -34,7 +53,33 @@ int main(void)
 
 void CAN_GPIO_Init(void)
 {
+	// INITIALIZE PIN 0
+	pGPIODModReg->pin_0 = GPIO_ALTERNATE_FUNC;
+	pPUPDR->pin_0 = GPIO_NO_PULL_DOWN;
+	pAFRL->pin_0 = GPIO_AF9;
+	pOSPEEDR->pin_0 = GPIO_HIGH_SPEED;
 
+	pGPIODModReg->pin_1 = GPIO_ALTERNATE_FUNC;
+	pPUPDR->pin_1 = GPIO_NO_PULL_DOWN;
+	pAFRL->pin_1 = GPIO_AF9;
+	pOSPEEDR->pin_1 = GPIO_HIGH_SPEED;
 
+}
+
+void Funct_CAN_init()
+{
+	hcan1.Init.Mode = CAN_MODE_LOOPBACK;
+	hcan1.Init.TransmitFifoPriority = ENABLE; //Priority By Request Order
+	hcan1.Init.AutoBusOff = DISABLE;
+	hcan1.Init.AutoWakeUp = DISABLE;
+	hcan1.Init.ReceiveFifoLocked = DISABLE; //OVERRAN NEW MSG
+	hcan1.Init.AutoRetransmission = DISABLE;
+	hcan1.Init.TimeTriggered_Mode = DISABLE;
+
+	//TIME REGISTER BIT
+
+	hcan1.Init.SyncJumpW =;
+	hcan1.Init.Time_Seg1 =;
+	hcan1.Init.Time_Seg2 =;
 
 }
