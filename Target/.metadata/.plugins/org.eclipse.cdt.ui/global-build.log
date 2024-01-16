@@ -1,9 +1,8 @@
-04:08:44 **** Incremental Build of configuration Debug for project CAN_Transmit ****
+07:50:31 **** Incremental Build of configuration Debug for project CAN_Transmit ****
 make -j16 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -I"C:/Users/adria/STM Course/Target/CAN_Transmit/Drivers" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc "../Drivers/can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DNUCLEO_F446ZE -DSTM32F4 -DSTM32F446ZETx -c -I../Inc -I"C:/Users/adria/STM Course/Target/CAN_Transmit/Drivers" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/can.d" -MT"Drivers/can.o" --specs=nano.specs -mfloat-abi=hard -mthumb -o "Drivers/can.o"
-../Src/main.c:23:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
-   23 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+../Src/main.c:25:4: warning: #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use." [-Wcpp]
+   25 |   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
       |    ^~~~~~~
 arm-none-eabi-gcc -o "CAN_Transmit.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\adria\STM Course\Target\CAN_Transmit\STM32F446ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CAN_Transmit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: CAN_Transmit.elf
@@ -11,7 +10,7 @@ Finished building target: CAN_Transmit.elf
 arm-none-eabi-size  CAN_Transmit.elf 
 arm-none-eabi-objdump -h -S CAN_Transmit.elf  > "CAN_Transmit.list"
    text	   data	    bss	    dec	    hex	filename
-    704	      8	   1568	   2280	    8e8	CAN_Transmit.elf
+   2068	      8	   1616	   3692	    e6c	CAN_Transmit.elf
 Finished building: default.size.stdout
  
 Finished building: CAN_Transmit.list

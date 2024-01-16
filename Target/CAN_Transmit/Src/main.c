@@ -19,13 +19,15 @@
 #include <stdint.h>
 #include "can.h"
 #include "stm32f446xx.h" // GPIOs
-#include "Include/stm32f446xx.h" // CMSIS
+//#include "Include/stm32f446xx.h" // CMSIS
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
 #define pRCCAHB1Reg  ((RCC_REG_AHB1ENR_t volatile *const)RCC_AHB1ENR_REG)
+#define pRCCAPB1Reg  ((RCC_REG_APB1ENR_t volatile *const)RCC_APB1ENR_REG)
+
 #define pGPIODModReg ((GPIOx_MODDER_t volatile *const)GPIOD_MODDER_REG)
 //#define pGPIODODRReg ((GPIOX_ORD_t volatile *const)GPIOD_ORD_REG)
 #define pGPIODTYPER ((GPIOx_OTYPER_t volatile *const)GPIOD_OTYPER_REG)
@@ -34,8 +36,12 @@
 #define pAFRH ((GPIOx_AFRH_t volatile *const)GPIOD_AFRH_REG)
 #define pAFRL ((GPIOx_AFRL_t volatile *const)GPIOD_AFRL_REG)
 
+void CAN_GPIO_Init(void);
+void Funct_CAN_init(void);
+void Funct_CAN1_Tx(void);
 
 HCAN hcan1;
+
 
 int main(void)
 {
@@ -43,9 +49,15 @@ int main(void)
 
 	//ENABLE THE RCC
 	pRCCAHB1Reg->GPIOD_EN = ENABLE;
+	pRCCAPB1Reg->CAN1EN = ENABLE;
 
-	Funct_CAN_init();
-	CAN_GPIO_Init();
+	Funct_CAN_init();  // To initialize CAN settings
+
+	CAN_GPIO_Init(); // Initialize and set-up GPIO D0, D1 (CANTX, CANRX)
+
+	Funct_CAN1_Tx(); // Set-Up the message and transmit
+
+	CAN_START(); // Start CAN transmission (NORMAL MODE)
 
 	for(;;);
 
@@ -66,7 +78,7 @@ void CAN_GPIO_Init(void)
 
 }
 
-void Funct_CAN_init()
+void Funct_CAN_init(void)
 {
 	hcan1.Init.Mode = CAN_MODE_LOOPBACK;
 	hcan1.Init.TransmitFifoPriority = ENABLE; //Priority By Request Order
@@ -76,10 +88,29 @@ void Funct_CAN_init()
 	hcan1.Init.AutoRetransmission = DISABLE;
 	hcan1.Init.TimeTriggered_Mode = DISABLE;
 
-	//TIME REGISTER BIT
+	//TIME REGISTER BIT CONFIG
 
-	hcan1.Init.SyncJumpW =;
-	hcan1.Init.Time_Seg1 =;
-	hcan1.Init.Time_Seg2 =;
+	hcan1.Init.Prescaler = 5;
+	hcan1.Init.SyncJumpW = CAN_SJW_1TQ;
+	hcan1.Init.Time_Seg1 = CAN_BS1_8TQ;
+	hcan1.Init.Time_Seg2 = CAN_BS2_1TQ;
+
+}
+
+void Funct_CAN1_Tx(void)
+{
+	CAN_Tx_t CAN1_tx;
+
+	uint32_t TxMailbox;
+
+	uint8_t data[5] = {'H','E','L','L','O'};
+
+	CAN1_tx.DLC = 5;
+	CAN1_tx.Std_id = 0x65D;
+	CAN1_tx.IDE = CAN_ID_STD;
+	CAN1_tx.RTR = CAN_RTR_DATA;
+
+	CAN_Transmit(&hcan1, &CAN1_tx, data, &TxMailbox);
+
 
 }

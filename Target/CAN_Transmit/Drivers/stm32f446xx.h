@@ -185,8 +185,8 @@
 #define CAN2_MCR CAN2_BASE_REG
 
 		/*  	GPIOX MODDER REGISTER	   */
-#define GPIO_BASE_REG			0x40020C00UL
-#define GPIO_MODDER_REG			0x40020C00UL
+#define GPIOD_BASE_REG			0x40020C00UL
+#define GPIOD_MODDER_REG		0x40020C00UL
 #define GPIOB_BASE_REG 			0x40020400UL								// BASE REGISTER
 #define GPIOB_MODDER_REG 		0x40020400UL								// MODDER
 
@@ -302,26 +302,35 @@ typedef struct
 
 typedef struct
 	{
-	_IO uint32_t  TIM2RST		       :1;
-	_IO uint32_t  TIM3RST		       :1;
-	_IO uint32_t  TIM4RST		       :1;
-	_IO uint32_t  TIM5RST		       :1;
-	_IO uint32_t  TIM6RST		       :1;
-	_IO uint32_t  TIM7RST		       :1;
-	_IO uint32_t  TIM12RST		       :1;
-	_IO uint32_t  TIM13RST		       :1;
-	_IO uint32_t  TIM14RST		       :1;
-	_IO uint32_t  WWDGRST		       :1;
-	_IO uint32_t  SPI2RST		       :1;
-	_IO uint32_t  SPI3RST		       :1;
-	_IO uint32_t  SPDIFRXRST		   :1;
-	_IO uint32_t  USART2RST		 	   :1;
-	_IO uint32_t  USART3RST		 	   :1;
-	_IO uint32_t  USART4RST		 	   :1;
-	_IO uint32_t  USART5RST		 	   :1;
-	_IO uint32_t  USART5RST		 	   :1;
-	_IO uint32_t  USART5RST		 	   :1;
-
+	_IO uint32_t  TIM2EN	      	   :1;
+	_IO uint32_t  TIM3EN		       :1;
+	_IO uint32_t  TIM4EN		       :1;
+	_IO uint32_t  TIM5EN		       :1;
+	_IO uint32_t  TIM6EN		       :1;
+	_IO uint32_t  TIM7EN		       :1;
+	_IO uint32_t  TIM12EN		       :1;
+	_IO uint32_t  TIM13EN		       :1;
+	_IO uint32_t  TIM14EN		       :1;
+	_RE uint32_t  				       :2;
+	_IO uint32_t  WWDGREN		       :1;
+	_RE uint32_t  				       :2;
+	_IO uint32_t  SPI2EN		       :1;
+	_IO uint32_t  SPI3EN		       :1;
+	_IO uint32_t  SPDIFRXEN		   	   :1;
+	_IO uint32_t  USART2EN		 	   :1;
+	_IO uint32_t  USART3EN		 	   :1;
+	_IO uint32_t  USART4EN		 	   :1;
+	_IO uint32_t  USART5EN		 	   :1;
+	_IO uint32_t  I2C1EN		 	   :1;
+	_IO uint32_t  I2C2EN		 	   :1;
+	_IO uint32_t  I2C3EN		 	   :1;
+	_IO uint32_t  FMPI2C1EN		 	   :1;
+	_IO uint32_t  CAN1EN		 	   :1;
+	_IO uint32_t  CAN2EN		 	   :1;
+	_IO uint32_t  CECEN			 	   :1;
+	_IO uint32_t  PWREN			 	   :1;
+	_IO uint32_t  DACEN			 	   :1;
+	_RE uint32_t  				       :2;
 
 } RCC_REG_APB1ENR_t;
 
