@@ -42,6 +42,8 @@ void Funct_CAN1_Tx(void);
 
 HCAN hcan1;
 
+void delay (int x);
+
 
 int main(void)
 {
@@ -51,15 +53,19 @@ int main(void)
 	pRCCAHB1Reg->GPIOD_EN = ENABLE;
 	pRCCAPB1Reg->CAN1EN = ENABLE;
 
-	Funct_CAN_init();  // To initialize CAN settings
-
 	CAN_GPIO_Init(); // Initialize and set-up GPIO D0, D1 (CANTX, CANRX)
+
+	Funct_CAN_init();  // To initialize CAN settings
 
 	Funct_CAN1_Tx(); // Set-Up the message and transmit
 
 	CAN_START(); // Start CAN transmission (NORMAL MODE)
 
-	for(;;);
+	for(;;)
+	{
+		Funct_CAN1_Tx(); // Set-Up the message and transmit
+		delay(100000);
+	}
 
 }
 
@@ -69,17 +75,19 @@ void CAN_GPIO_Init(void)
 	pGPIODModReg->pin_0 = GPIO_ALTERNATE_FUNC;
 	pPUPDR->pin_0 = GPIO_NO_PULL_DOWN;
 	pAFRL->pin_0 = GPIO_AF9;
-	pOSPEEDR->pin_0 = GPIO_HIGH_SPEED;
+	pOSPEEDR->pin_0 = GPIO_MEDIUM_SPEED;
 
+	// INITILIZE PIN 1
 	pGPIODModReg->pin_1 = GPIO_ALTERNATE_FUNC;
 	pPUPDR->pin_1 = GPIO_NO_PULL_DOWN;
 	pAFRL->pin_1 = GPIO_AF9;
-	pOSPEEDR->pin_1 = GPIO_HIGH_SPEED;
+	pOSPEEDR->pin_1 = GPIO_MEDIUM_SPEED;
 
 }
 
 void Funct_CAN_init(void)
 {
+	//CAN INITT CONFIG
 	hcan1.Init.Mode = CAN_MODE_LOOPBACK;
 	hcan1.Init.TransmitFifoPriority = ENABLE; //Priority By Request Order
 	hcan1.Init.AutoBusOff = DISABLE;
@@ -90,10 +98,13 @@ void Funct_CAN_init(void)
 
 	//TIME REGISTER BIT CONFIG
 
-	hcan1.Init.Prescaler = 5;
+	hcan1.Init.Prescaler = 8;
 	hcan1.Init.SyncJumpW = CAN_SJW_1TQ;
-	hcan1.Init.Time_Seg1 = CAN_BS1_8TQ;
-	hcan1.Init.Time_Seg2 = CAN_BS2_1TQ;
+	hcan1.Init.Time_Seg1 = CAN_BS1_13TQ;
+	hcan1.Init.Time_Seg2 = CAN_BS2_2TQ;
+
+	// CALL FUNCTION TO WRITE IN REGISTER
+	CAN_init(&hcan1);
 
 }
 
@@ -113,4 +124,14 @@ void Funct_CAN1_Tx(void)
 	CAN_Transmit(&hcan1, &CAN1_tx, data, &TxMailbox);
 
 
+}
+
+void delay (int x) // Delay function using volatile int (not optimize Assembly code)
+{
+  volatile int i,j;
+  for (i=0 ; i < x ; i++)
+  {
+     j++;
+  }
+  return;
 }

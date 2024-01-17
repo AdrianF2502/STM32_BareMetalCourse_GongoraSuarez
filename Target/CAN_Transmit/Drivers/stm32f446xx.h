@@ -21,7 +21,7 @@
 #define RCC_BASE_REG 			0x40023800UL								// BASE REGISTER
 #define RCC_AHB1ENR_OFFSET  	0x30UL										//
 #define RCC_AHB1ENR_REG 		(RCC_BASE_REG + RCC_AHB1ENR_OFFSET)			//{
-#define RCC_APB1ENR_OFFSET  	0x20UL										//
+#define RCC_APB1ENR_OFFSET  	0x40UL										//
 #define RCC_APB1ENR_REG 		(RCC_BASE_REG + RCC_APB1ENR_OFFSET)			//{
 
 

@@ -98,6 +98,10 @@
 #define CAN_RTR_DATA				0x00UL
 #define CAN_RTR_REMOTE				0x01UL
 
+//CAN Mailbox values
+#define CAN_mailbox0 				0x00UL
+#define CAN_mailbox1				0x01UL
+#define CAN_mailbox2 				0x02UL
 
 /*typedef enum
 {

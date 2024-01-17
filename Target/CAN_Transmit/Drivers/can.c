@@ -11,8 +11,10 @@
 
 
 
+
 void CAN_init(HCAN *hcan) // TODO: PUT ERROR HANDLER IN PLACE INSTEAD OF VOID TYPE
 {
+	pMCRReg -> DBF = CLEAR_BIT; // ENABLE THE CAN IN DEBUG MODE
 
 	// ENTER INITIALIZATION MODE
 	pMCRReg -> INRQ = SET_BIT;
@@ -24,7 +26,7 @@ void CAN_init(HCAN *hcan) // TODO: PUT ERROR HANDLER IN PLACE INSTEAD OF VOID TY
 
 	// EXIT SLEEP MODE
 	pMCRReg -> SLEEP = CLEAR_BIT;
-	while (pMSRReg -> SLAK == 0)
+	while (pMSRReg -> SLAK != 0)
 	{
 		// TODO: ERROR CODE and RETURN
 	}
@@ -123,7 +125,7 @@ void CAN_init(HCAN *hcan) // TODO: PUT ERROR HANDLER IN PLACE INSTEAD OF VOID TY
 
 	// SYNC JUMP WIDH TIME QUATA 1-4
 
-	switch(hcan -> Init.Time_Seg1)
+	switch(hcan -> Init.SyncJumpW)
 	{
 
 		case CAN_SJW_1TQ: (pBTRReg -> SJW = 0x0);
@@ -258,15 +260,15 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 
 			switch(*pTxMailbox)
 			{
-				case 0x01:
+				case CAN_mailbox0:
 					pTI0RReg -> STID = pHeader->Std_id;
 					pTI0RReg -> RTR = pHeader-> RTR;
 						break;
-				case 0x02:
+				case CAN_mailbox1:
 					pTI1RReg -> STID = pHeader->Std_id;
 					pTI1RReg -> RTR = pHeader-> RTR;
 						break;
-				case 0x03:
+				case CAN_mailbox2:
 					pTI2RReg -> STID = pHeader->Std_id;
 					pTI2RReg -> RTR = pHeader-> RTR;
 						break;
@@ -278,15 +280,15 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 		{
 			switch(*pTxMailbox)
 			{
-				case 0x01:
+				case CAN_mailbox0:
 					pTI0RReg -> EXID = pHeader->Ext_id;
 					pTI0RReg -> RTR = pHeader-> RTR;
 						break;
-				case 0x02:
+				case CAN_mailbox1:
 					pTI1RReg -> EXID = pHeader->Ext_id;
 					pTI1RReg -> RTR = pHeader-> RTR;
 						break;
-				case 0x03:
+				case CAN_mailbox2:
 					pTI2RReg -> EXID = pHeader->Ext_id;
 					pTI2RReg -> RTR = pHeader-> RTR;
 						break;
@@ -299,13 +301,13 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 
 		switch(*pTxMailbox)
 					{
-						case 0x01:  // TODO: COMPLETE WITH THE TIMESTAP IF USED...
+						case CAN_mailbox0:  // TODO: COMPLETE WITH THE TIMESTAP IF USED...
 							pTDT0RReg -> DLC  = pHeader->DLC;
 								break;
-						case 0x02:
+						case CAN_mailbox1:
 							pTDT1RReg -> DLC  = pHeader->DLC;
 								break;
-						case 0x03:
+						case CAN_mailbox2:
 							pTDT2RReg -> DLC  = pHeader->DLC;
 								break;
 						default:
@@ -315,7 +317,7 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 
 		switch(*pTxMailbox)
 					{
-						case 0x01:
+						case CAN_mailbox0:
 							pTDH0RReg ->DATA7  = CAN_data[7];
 							pTDH0RReg ->DATA6  = CAN_data[6];
 							pTDH0RReg ->DATA5  = CAN_data[5];
@@ -325,7 +327,7 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 							pTDL0RReg ->DATA1  = CAN_data[1];
 							pTDL0RReg ->DATA0  = CAN_data[0];
 								break;
-						case 0x02:
+						case CAN_mailbox1:
 							pTDH1RReg ->DATA7  = CAN_data[7];
 							pTDH1RReg ->DATA6  = CAN_data[6];
 							pTDH1RReg ->DATA5  = CAN_data[5];
@@ -335,7 +337,7 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 							pTDL1RReg ->DATA1  = CAN_data[1];
 							pTDL1RReg ->DATA0  = CAN_data[0];
 								break;
-						case 0x03:
+						case CAN_mailbox2:
 							pTDH2RReg ->DATA7  = CAN_data[7];
 							pTDH2RReg ->DATA6  = CAN_data[6];
 							pTDH2RReg ->DATA5  = CAN_data[5];
@@ -352,15 +354,15 @@ void CAN_Transmit(HCAN *hcan, CAN_Tx_t *pHeader, uint8_t CAN_data[], uint32_t *p
 		// REQUEST THE TRANSMISSION
 		switch(*pTxMailbox)
 					{
-						case 0x01:
+						case CAN_mailbox0:
 							pTI0RReg -> TXRQ = SET_BIT;
 
 								break;
-						case 0x02:
+						case CAN_mailbox1:
 							pTI1RReg -> TXRQ = SET_BIT;
 
 								break;
-						case 0x03:
+						case CAN_mailbox2:
 							pTI2RReg -> TXRQ = SET_BIT;
 
 								break;
